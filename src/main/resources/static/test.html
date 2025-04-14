@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>        body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .pagination {
+        margin-top: 20px;
+    }
+    .pagination button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+<h1>Student List</h1>
+<input type="text" id="nameFilter" placeholder="Filter by name">
+<button onclick="fetchStudents()">Search</button>
+<div class="pagination">
+    <button onclick="prevPage()">Previous</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+</div>
+<table id="studentTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>No</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Degree</th>
+        <th>ID Card</th>
+        <th>Is College</th>
+        <th>Address</th>
+        <th>Graduation Date</th>
+        <th>Class ID</th>
+        <th>Violation Count</th>
+        <th>Violation Score</th>
+        <th>Create Time</th>
+        <th>Update Time</th>
+        <th>Class Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+<script>        let currentPage = 1;
+const pageSize = 10;
+
+function fetchStudents() {
+    const name = document.getElementById('nameFilter').value;
+    const url = `http://localhost:8080/students?page=${currentPage}&pageSize=${pageSize}&name=${name}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            displayStudents(data.data.rows);
+            updatePagination(data.data.total);
+        })
+        .catch(error => console.error('Error fetching students:', error));
+}
+
+function displayStudents(students) {
+    const tableBody = document.querySelector('#studentTable tbody');
+    tableBody.innerHTML = '';
+    students.forEach(student => {
+        const row = document.createElement('tr');
+        row.innerHTML = `                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.no}</td>
+                    <td>${student.gender === 1 ? '男' : '女'}</td>
+                    <td>${student.phone}</td>
+                    <td>${getDegreeName(student.degree)}</td>
+                    <td>${student.idCard}</td>
+                    <td>${student.isCollege === 1 ? '是' : '否'}</td>
+                    <td>${student.address}</td>
+                    <td>${student.graduationDate}</td>
+                    <td>${student.clazzId}</td>
+                    <td>${student.violationCount}</td>
+                    <td>${student.violationScore}</td>
+                    <td>${student.createTime}</td>
+                    <td>${student.updateTime}</td>
+                    <td>${student.clazzName}</td>
+                `;
+        tableBody.appendChild(row);
+    });
+}
+
+function getDegreeName(degree) {
+    switch (degree) {
+        case 1: return '初中';
+        case 2: return '高中';
+        case 3: return '大专';
+        case 4: return '本科';
+        case 5: return '硕士';
+        case 6: return '博士';
+        default: return '未知';
+    }
+}
+
+function updatePagination(total) {
+    const totalPages = Math.ceil(total / pageSize);
+    document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        fetchStudents();
+    }
+}
+
+function nextPage() {
+    // Assuming there's no way to know the total number of pages in advance,
+    // we can fetch the next page and check if it returns any data.
+    currentPage++;
+    fetchStudents();
+}
+
+// Initial fetch on page load
+fetchStudents();
+</script>
+</body>
+</html>
