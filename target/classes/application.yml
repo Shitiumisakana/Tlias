@@ -1,0 +1,25 @@
+#配置数据库的连接信息
+spring:
+  application:
+    name: tlias-web-management
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tlias
+    username: root
+    password: 123456
+
+#配置mybatis的日志输出
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    开启后mybatis可以自动封装符合驼峰命名法的属性，例如creat_time -> creatTime
+    map-underscore-to-camel-case: true
+
+
+#阿里云OSS
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: java4189
+    region: cn-beijing
