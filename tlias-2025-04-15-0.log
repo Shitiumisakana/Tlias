@@ -1,0 +1,29 @@
+2025-04-15 10:13:16.247 [main] INFO  com.example.tlias.TliasApplication-Starting TliasApplication using Java 21 with PID 40624 (E:\Java\Exercise\Tlias System\Tlias\target\classes started by shiqing in E:\Java\Exercise\Tlias System)
+2025-04-15 10:13:16.248 [main] INFO  com.example.tlias.TliasApplication-No active profile set, falling back to 1 default profile: "default"
+2025-04-15 10:13:17.214 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-04-15 10:13:17.226 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:13:17.227 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-04-15 10:13:17.227 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-15 10:13:17.268 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring embedded WebApplicationContext
+2025-04-15 10:13:17.268 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext-Root WebApplicationContext: initialization completed in 988 ms
+2025-04-15 10:13:17.926 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:13:17.950 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-04-15 10:13:17.957 [main] INFO  com.example.tlias.TliasApplication-Started TliasApplication in 2.158 seconds (process running for 3.275)
+2025-04-15 10:13:29.470 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-15 10:13:29.470 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-04-15 10:13:29.471 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2025-04-15 10:13:29.533 [http-nio-8080-exec-1] INFO  com.example.tlias.interceptor.TokenInterceptor-令牌错误，响应401
+2025-04-15 10:13:29.533 [http-nio-8080-exec-2] INFO  com.example.tlias.interceptor.TokenInterceptor-令牌错误，响应401
+2025-04-15 10:13:38.107 [http-nio-8080-exec-3] INFO  com.example.tlias.controller.LoginController-用户登录：Emp(id=null, username=wusong, password=123456, name=null, gender=null, phone=null, job=null, salary=null, image=null, entryDate=null, deptId=null, createTime=null, updateTime=null, deptName=null, exprList=null)
+2025-04-15 10:13:38.127 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-04-15 10:13:38.412 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16f97412
+2025-04-15 10:13:38.414 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-04-15 10:13:38.466 [http-nio-8080-exec-3] INFO  com.example.tlias.service.impl.EmpServiceImpl-用户登录成功，用户信息为：Emp(id=9, username=wusong, password=null, name=武松, gender=null, phone=null, job=null, salary=null, image=null, entryDate=null, deptId=null, createTime=null, updateTime=null, deptName=null, exprList=null)
+2025-04-15 10:13:40.626 [http-nio-8080-exec-4] INFO  com.example.tlias.controller.ReportController-统计学员学历
+2025-04-15 10:13:40.626 [http-nio-8080-exec-5] INFO  com.example.tlias.controller.ReportController-统计班级人数
+2025-04-15 10:13:42.845 [http-nio-8080-exec-7] INFO  com.example.tlias.controller.ReportController-统计员工职位人数
+2025-04-15 10:13:42.845 [http-nio-8080-exec-6] INFO  com.example.tlias.controller.ReportController-统计员工性别人数
+2025-04-15 10:20:40.580 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-15 10:20:40.585 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-04-15 10:20:40.595 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-04-15 10:20:40.606 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
