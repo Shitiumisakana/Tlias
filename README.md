@@ -1,6 +1,7 @@
 # Tlias 教学管理系统 (Tlias Teaching Management System)
 
 本项目是基于 **Spring Cloud** 微服务架构开发的综合性教学管理平台。系统采用敏捷开发模式，旨在为高校或培训机构提供高效的学生管理、选课及教务自动化解决方案。
+前端链接https://github.com/Shitiumisakana/Tlias-front
 
 ---
 
